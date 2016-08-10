@@ -1,0 +1,15 @@
+//Logger class   
+public static class Logger
+{
+   public static string filePath = Environment.CurrentDirectory;
+   public static void WriteToFile(string message)
+   {
+      string strFileName = Path.Combine(filePath, String.Format("{0}{1}.log", filePath, DateTime.Now.ToString("yyyyMMdd")));
+
+   using (StreamWriter writer = new StreamWriter(strFileName, true))
+   {
+      writer.WriteLine(DateTime.Now.ToString("[dd/MM/yyyy hh:mm:ss]") + "  ->  " + message);
+   };
+  }
+  
+  
